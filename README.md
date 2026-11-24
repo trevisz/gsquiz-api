@@ -107,8 +107,6 @@ Este projeto é parte da disciplina de **Domain Driven Design (DDD)** e tem como
 ## 📝 Contribuidores
 
 - [João Victor Trevisan] - RM: [560263]
-- [Vinicius Rodrigues de Oliveira] - RM: [550611]
-- [Henrique Marques Sladkevicius] - RM: [560698]
 
 ---
 
