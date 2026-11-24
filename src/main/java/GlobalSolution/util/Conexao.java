@@ -5,11 +5,19 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-    private static final String URL = System.getenv("ORACLE_URL");
-    private static final String USER = System.getenv("ORACLE_USER");
-    private static final String PASSWORD = System.getenv("ORACLE_PASSWORD");
 
     public static Connection conectar() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        String url = requiredEnv("ORACLE_URL");
+        String user = requiredEnv("ORACLE_USER");
+        String password = requiredEnv("ORACLE_PASSWORD");
+        return DriverManager.getConnection(url, user, password);
+    }
+
+    private static String requiredEnv(String name) {
+        String value = System.getenv(name);
+        if (value == null || value.isBlank()) {
+            throw new IllegalStateException("Required environment variable is missing: " + name);
+        }
+        return value;
     }
 }
