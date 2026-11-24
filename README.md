@@ -73,13 +73,28 @@ Este projeto é parte da disciplina de **Domain Driven Design (DDD)** e tem como
 
 ## 💻 Como Rodar o Projeto
 
-1. Configurar o **Banco de Dados Oracle** e criar as tabelas (`GS_USUARIOS`, `GS_PERGUNTAS`, `GS_RESULTADOS`).
-2. Atualizar as credenciais no arquivo `Conexao.java`.
-3. No terminal:
-    ```bash
-    ./mvnw clean compile quarkus:dev
-    ```
-4. Testar os endpoints via **Postman** ou **cURL**.
+1. Configure o **Banco de Dados Oracle** e crie as tabelas (`GS_USUARIOS`, `GS_PERGUNTAS`, `GS_RESULTADOS`).
+2. Defina `ORACLE_URL`, `ORACLE_USER` e `ORACLE_PASSWORD` no ambiente do terminal. Não coloque os valores no código nem no Git.
+
+   **Windows PowerShell:**
+   ```powershell
+   $env:ORACLE_URL = "jdbc:oracle:thin:@//<host>:1521/<service>"
+   $env:ORACLE_USER = "<usuario>"
+   $env:ORACLE_PASSWORD = "<senha>"
+   ```
+
+   **Linux/macOS:**
+   ```bash
+   export ORACLE_URL="jdbc:oracle:thin:@//<host>:1521/<service>"
+   export ORACLE_USER="<usuario>"
+   export ORACLE_PASSWORD="<senha>"
+   ```
+
+3. Inicie o backend:
+   ```bash
+   ./mvnw clean compile quarkus:dev
+   ```
+4. Teste os endpoints via **Postman** ou **cURL**.
 
 ---
 
